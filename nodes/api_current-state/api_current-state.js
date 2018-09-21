@@ -32,7 +32,7 @@ module.exports = function(RED) {
         /* eslint-disable camelcase */
         onInput({ parsedMessage, message }) {
             const entity_id = this.nodeConfig.entity_id ? this.nodeConfig.entity_id : parsedMessage.entity_id.value;
-            const logAndContinueEmpty = (logMsg) => { this.node.warn(logMsg); return ({ payload: {}}) };
+            const logAndContinueEmpty = (logMsg) => { this.node.warn(logMsg); return ({ payload: {} }) };
 
             if (!entity_id) return logAndContinueEmpty('entity ID not set, cannot get current state, sending empty payload');
 
@@ -47,8 +47,7 @@ module.exports = function(RED) {
                 const debugMsg = `Get current state: halting processing due to current state of ${entity_id} matches "halt if state" option`;
                 this.debug(debugMsg);
                 this.debugToClient(debugMsg);
-                var prettyDate = new Date().toLocaleDateString("en-US",{month: 'short', day: 'numeric', hour12: false, hour: 'numeric', minute: 'numeric'});
-                this.status({fill:"red",shape:"ring",text:`${currentState.state} at: ${prettyDate}`});
+                this.status({ fill: 'red', shape: 'ring', text: `${currentState.state} at: ${this.getPrettyDate()}` });
                 return null;
             }
 
@@ -58,18 +57,17 @@ module.exports = function(RED) {
 
             if (override_topic)   message.topic = entity_id;
             if (override_payload) message.payload = currentState.state;
-            
-	    message.data = currentState;
-            
-            var prettyDate = new Date().toLocaleDateString("en-US",{month: 'short', day: 'numeric', hour12: false, hour: 'numeric', minute: 'numeric'});
-            this.status({fill:"green",shape:"dot",text:`${currentState.state} at: ${prettyDate}`});
+
+            message.data = currentState;
+
+            this.status({ fill: 'green', shape: 'dot', text: `${currentState.state} at: ${this.getPrettyDate()}` });
             this.node.send(message);
         }
     }
 
     RED.nodes.registerType('api-current-state', CurrentStateNode, {
         settings: {
-            apiCurrentStateAdminPrefix: {
+            apiCurrentState: {
                 value: RED.settings.httpAdminRoot,
                 exportable: true
             }

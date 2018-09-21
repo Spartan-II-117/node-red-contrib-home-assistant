@@ -32,8 +32,8 @@ module.exports = function(RED) {
                 if (shouldIncludeEvent) {
                     if (shouldHaltIfState) {
                         this.debug('flow halted due to "halt if state" setting');
-	                var prettyDate = new Date().toLocaleDateString("en-US",{month: 'short', day: 'numeric', hour12: false, hour: 'numeric', minute: 'numeric'});
-		        this.status({fill:"red",shape:"ring",text:`${event.new_state.state} at: ${prettyDate}`}); 
+                        this.status({ fill: 'red', shape: 'ring', text: `${event.new_state.state} at: ${this.getPrettyDate()}` });
+
                         return null;
                     }
 
@@ -43,8 +43,7 @@ module.exports = function(RED) {
                         data:    event
                     };
 
-	            var prettyDate = new Date().toLocaleDateString("en-US",{month: 'short', day: 'numeric', hour12: false, hour: 'numeric', minute: 'numeric'});
-		    this.status({fill:"green",shape:"dot",text:`${event.new_state.state} at: ${prettyDate}`}); 
+                    this.status({ fill: 'green', shape: 'dot', text: `${event.new_state.state} at: ${this.getPrettyDate()}` });
                     (event.old_state)
                         ? this.debug(`Incoming state event: entity_id: ${event.entity_id}, new_state: ${event.new_state.state}, old_state: ${event.old_state.state}`)
                         : this.debug(`Incoming state event: entity_id: ${event.entity_id}, new_state: ${event.new_state.state}`);
@@ -85,5 +84,12 @@ module.exports = function(RED) {
         }
     }
 
-    RED.nodes.registerType('server-state-changed', ServerStateChangedNode);
+    RED.nodes.registerType('server-state-changed', ServerStateChangedNode, {
+        settings: {
+            serverStateChangedAdminPrefix: {
+                value: RED.settings.httpAdminRoot,
+                exportable: true
+            }
+        }
+    });
 };
