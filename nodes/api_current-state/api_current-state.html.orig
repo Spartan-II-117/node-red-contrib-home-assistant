@@ -42,7 +42,11 @@
             if (!isConfigValid) { $entityIdField.addClass('disabled'); }
             else { $entityIdField.removeClass('disabled'); }
 
+<<<<<<< HEAD:nodes/api_current-state/api_current-state.html
+            $.get('/homeassistant/entities')
+=======
             $.get(`${RED.settings.apiCurrentStateAdminPrefix}homeassistant/entities`)
+>>>>>>> 04ad398... More fixes for not ignoring custom paths in node-red.:nodes/current-state/current-state.html
                 .done((entities) => {
                     this.availableEntities = JSON.parse(entities);
 

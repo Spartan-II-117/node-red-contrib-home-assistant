@@ -67,6 +67,9 @@ module.exports = function(RED) {
         }
     }
 
+<<<<<<< HEAD:nodes/api_current-state/api_current-state.js
+    RED.nodes.registerType('api-current-state', CurrentStateNode);
+=======
     RED.nodes.registerType('api-current-state', CurrentStateNode, {
         settings: {
             apiCurrentStateAdminPrefix: {
@@ -75,4 +78,5 @@ module.exports = function(RED) {
             }
         }
     });
+>>>>>>> 04ad398... More fixes for not ignoring custom paths in node-red.:nodes/current-state/current-state.js
 };

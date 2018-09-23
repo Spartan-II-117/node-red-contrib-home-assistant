@@ -240,6 +240,9 @@ module.exports = function(RED) {
         }
     }
 
+<<<<<<< HEAD
+    RED.nodes.registerType('trigger-state', TriggerState);
+=======
     RED.nodes.registerType('trigger-state', TriggerState, {
         settings: {
             triggerStateAdminPrefix: {
@@ -248,4 +251,5 @@ module.exports = function(RED) {
             }
         }
     });
+>>>>>>> 04ad398... More fixes for not ignoring custom paths in node-red.
 };

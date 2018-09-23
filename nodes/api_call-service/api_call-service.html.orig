@@ -57,10 +57,14 @@
             // Calls the custom api backend defined in the config-server.js node
             // TODO: Not sure how this works with node-red if auth is enabled
             function setServicesAndDomains(node) {
+<<<<<<< HEAD:nodes/api_call-service/api_call-service.html
+               return $.get('/homeassistant/services')
+=======
                return $.get(`${RED.settings.apiCallServiceAdminPrefix}homeassistant/services`)
+>>>>>>> 04ad398... More fixes for not ignoring custom paths in node-red.:nodes/call-service/call-service.html
                     .then(services => {
                         node.allServices = JSON.parse(services);
-                        node.allDomains  = Object.keys(node.allServices);
+                        node.allDomains  = node.allServices.map(s => s.domain);
 
                         $domainField.autocomplete({
                             source: node.allDomains,
@@ -139,13 +143,14 @@
                 }
             }
 
+
             function updateDomainSelection({ event, domainText }) {
                 let selectedDomainText = domainText;
                 if ( !selectedDomainText && event) { selectedDomainText = $(event.target).val(); }
 
                 const knownDomain = (node.allDomains.indexOf(selectedDomainText) > -1);
                 node.selectedDomain = knownDomain
-                    ? { services: node.allServices[selectedDomainText] }
+                    ? node.allServices.find(s => (s.domain === selectedDomainText))
                     : node.selectedDomain = { services: {} };
 
                 $serviceField.autocomplete({

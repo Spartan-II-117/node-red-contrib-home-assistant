@@ -222,7 +222,11 @@
 
                     // A home assistant server is selected in the node config
                     if (NODE.server || (selectedServer && selectedServer !== '_ADD_')) {
+<<<<<<< HEAD
+                        $.get('/homeassistant/entities').done((entities) => {
+=======
                         $.get(`${RED.settings.triggerStateAdminPrefix}homeassistant/entities`).done((entities) => {
+>>>>>>> 04ad398... More fixes for not ignoring custom paths in node-red.
                             NODE.availableEntities = JSON.parse(entities);
                             $entityid.autocomplete({ source: NODE.availableEntities, minLength: 0 });
                         })
