@@ -1,7 +1,7 @@
 const BaseNode = require('../../lib/base-node');
 
 module.exports = function(RED) {
-    const HomeAssistant = require('node-home-assistant');
+    const HomeAssistant = require('node-home-assistant-llat');
 
     const httpHandlers = {
         getEntities: function (req, res, next) {
