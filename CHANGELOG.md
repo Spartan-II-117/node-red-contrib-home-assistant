@@ -1,3 +1,7 @@
+# v0.3.8
+* Change: renamed project for publication on NPM
+* Feat: Added support for Long lived access tokens so support Home-assistant's new auth system
+
 # v0.3.6
 * Feat: Added <= and => comparison for Constraints and Outputs. Renamed greater_than and less_than to > and < but kept backwards compatibility
 * Fix: Fixed label for outputs that was getting undefined tacked on to the front of the string.

@@ -1,21 +1,17 @@
 NOTE: I did not write this, I forked from [@AYapejian](https://github.com/AYapejian/node-red-contrib-home-assistant) due to a lack of responsiveness to issues and pull requests.
 
-# Node Red Contrib Home Assistant
+# Node Red Contrib Home Assistant LLAT (Long Lived Access Token)
 
 Various nodes to assist in setting up automation using [node-red](https://nodered.org/) communicating with [Home Assistant](https://home-assistant.io/).
 
-## Project status
-
-Project is going through active development and as such will probably have a few 'growing pain' bugs as well as node type, input, output and functionality changes.  At this stage backwards compatibility between versions is not a main concern and a new version __may mean you'll have to recreate certain nodes.__
-
 ## Getting Started
 
-This assumes you have [node-red](http://nodered.org/) already installed and working, if you need to install node-red see [here](http://nodered.org/docs/getting-started/installation)
+This assumes you have [node-red](http://nodered.org/) already installed, and working, if you need to install node-red see [here](http://nodered.org/docs/getting-started/installation)
 
 #### NOTE: node-red-contrib-home-assistant requires node.JS > 8.0  If you're running Node-Red in Docker you'll need to pull the -v8 image for this to work.
 
 ```shell
-$ cd cd ~/.node-red
+$ cd ~/.node-red
 $ npm install node-red-contrib-home-assistant
 # then restart node-red
 ```
@@ -23,7 +19,7 @@ $ npm install node-red-contrib-home-assistant
 If you are running Node Red inside Hass.io addon/container you can use Hass.io API Proxy address `http://hassio/homeassistant` as Home Assistant server address (server node Base URL). This way you don't need any real network address.
 
 =======
-For flow examples checkout the [flows here](https://raw.githubusercontent.com/AYapejian/node-red-contrib-home-assistant/master/_docker/node-red/root-fs/data/flows.json)
+For flow examples checkout the [flows here](https://raw.githubusercontent.com/Spartan-II-117/node-red-contrib-home-assistant/master/_docker/node-red/root-fs/data/flows.json)
 
 ---
 ## Included Nodes

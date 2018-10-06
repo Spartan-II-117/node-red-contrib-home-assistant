@@ -54,7 +54,6 @@
     "lodash.merge": "^4.6.0",
     "lowdb": "^1.0.0",
     "node-home-assistant-llat": "0.2.4",
-    "node-red": "node-red/node-red#0.18.2",
     "selectn": "^1.1.2",
     "serialize-javascript": "^1.4.0",
     "time-ago": "^0.2.1"
