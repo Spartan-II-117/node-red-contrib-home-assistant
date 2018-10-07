@@ -1,7 +1,7 @@
 {
   "name": "node-red-contrib-home-assistant-llat",
   "description": "Node-red nodes to connect with Home Assistant using Long Lived Access Tokens",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "homepage": "https://github.com/Spartan-II-117/node-red-contrib-home-assistant",
   "bugs": {
     "url": "https://github.com/Spartan.II.117/node-red-contrib-home-assistant/issues"
